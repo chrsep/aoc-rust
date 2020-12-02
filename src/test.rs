@@ -3,12 +3,11 @@ use crate::day_one;
 use std::fs;
 
 #[test]
+/// Find the two entries that sum to 2020 and then multiply those two numbers together.
 fn day_one_test() {
-    match fs::read_to_string("./test_inputs/1.txt") {
-        Ok(input) => day_one(input),
-        Err(err) => {
-            println!("{}",err);
-            assert!(false)
-        }
-    }
+    let input = fs::read_to_string("./test_data/input/1.txt").unwrap();
+    let result = day_one(input);
+
+    let output = fs::read_to_string("./test_data/output/1.txt").unwrap();
+    assert_eq!(output.parse::<i32>().unwrap(), result);
 }
